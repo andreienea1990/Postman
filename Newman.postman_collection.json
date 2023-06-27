@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "9462defa-8548-4627-b831-825f56800c64",
+		"name": "Newman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28204638",
+		"_collection_link": "https://andreieneafortech.postman.co/workspace/04b8719c-22fb-4354-84dc-82e3cc24b4cd/collection/28204638-9462defa-8548-4627-b831-825f56800c64?action=share&creator=28204638&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "All Collections",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"console.log(\"Aici incepe tests\")",
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response json data should not have errors\", function () {",
+							"    pm.response.to.have.jsonBody();",
+							"    pm.response.to.not.have.jsonBody('error');",
+							"});",
+							"",
+							"pm.test(\"response json should contain collections\", function () {",
+							"    pm.expect(pm.response.json()).to.have.property('collections').and.be.an('array');",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{value}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "{{key}}",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.getpostman.com/collections",
+					"protocol": "https",
+					"host": [
+						"api",
+						"getpostman",
+						"com"
+					],
+					"path": [
+						"collections"
+					]
+				},
+				"description": "The `/collections` endpoint returns a list of all [collections](https://www.getpostman.com/docs/collections) that are accessible by you. The list includes your own collections and the collections that you have subscribed to.\n\nThe response contains an array of collection information containing the `name`, `id`, `owner` and `uid` of each collection.\n\n> Requires <a href=\"#authentication\">API Key</a> as `X-Api-Key` request header or `apikey` URL query parameter."
+			},
+			"response": [
+				{
+					"name": "Valid Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.getpostman.com/collections",
+							"protocol": "https",
+							"host": [
+								"api",
+								"getpostman",
+								"com"
+							],
+							"path": [
+								"collections"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": {
+								"content": "",
+								"type": "text/plain"
+							}
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"collections\": [\n        {\n            \"id\": \"dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"name\": \"Cloud API\",\n            \"owner\": \"631643\",\n            \"createdAt\": \"2022-04-12T10:29:46.000Z\",\n            \"updatedAt\": \"2022-04-12T10:29:56.000Z\",\n            \"uid\": \"631643-dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"isPublic\": true\n        },\n        {\n            \"id\": \"f2e66c2e-5297-e4a5-739e-20cbb90900e3\",\n            \"name\": \"Sample Collection\",\n            \"owner\": \"631643\",\n            \"createdAt\": \"2022-01-13T10:21:46.000Z\",\n            \"updatedAt\": \"2022-02-12T11:29:56.000Z\",\n            \"uid\": \"631643-f2e66c2e-5297-e4a5-739e-20cbb90900e3\",\n            \"isPublic\": false\n        },\n        {\n            \"id\": \"f695cab7-6878-eb55-7943-ad88e1ccfd65\",\n            \"name\": \"Postman Echo\",\n            \"owner\": \"631643\",\n            \"createdAt\": \"2021-04-11T09:18:26.000Z\",\n            \"updatedAt\": \"2022-05-01T15:29:32.000Z\",\n            \"uid\": \"631643-f695cab7-6878-eb55-7943-ad88e1ccfd65\",\n            \"isPublic\": true\n        }\n    ]\n}"
+				},
+				{
+					"name": "Filter by workspace",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.getpostman.com/collections?workspace=<workspace-id>",
+							"protocol": "https",
+							"host": [
+								"api",
+								"getpostman",
+								"com"
+							],
+							"path": [
+								"collections"
+							],
+							"query": [
+								{
+									"key": "workspace",
+									"value": "<workspace-id>"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": {
+								"content": "",
+								"type": "text/plain"
+							}
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"collections\": [\n        {\n            \"id\": \"dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"name\": \"Cloud API\",\n            \"owner\": \"631643\",\n            \"createdAt\": \"2022-04-12T10:29:46.000Z\",\n            \"updatedAt\": \"2022-04-12T10:29:56.000Z\",\n            \"uid\": \"631643-dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"isPublic\": true\n        }\n    ]\n}"
+				},
+				{
+					"name": "All Collections",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.getpostman.com/collections",
+							"protocol": "https",
+							"host": [
+								"api",
+								"getpostman",
+								"com"
+							],
+							"path": [
+								"collections"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 27 Jun 2023 06:47:59 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=284cd094b639e07c"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=c7ff072c1a06261f"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "300"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "299"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1687848539"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"443-qq2OXfB4M6+7KJnarRzgidX9eU8\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"collections\": [\n        {\n            \"id\": \"66300111-51b8-401e-ba7e-debc8bbe6713\",\n            \"name\": \"Postman API\",\n            \"owner\": \"28204638\",\n            \"createdAt\": \"2023-06-27T05:07:20.000Z\",\n            \"updatedAt\": \"2023-06-27T05:07:22.000Z\",\n            \"uid\": \"28204638-66300111-51b8-401e-ba7e-debc8bbe6713\",\n            \"isPublic\": false\n        },\n        {\n            \"id\": \"791f356d-eb7b-408f-a6fc-22cdd8ea512c\",\n            \"name\": \"TestCollection\",\n            \"owner\": \"28204638\",\n            \"createdAt\": \"2023-06-27T05:07:20.000Z\",\n            \"updatedAt\": \"2023-06-27T06:28:12.000Z\",\n            \"uid\": \"28204638-791f356d-eb7b-408f-a6fc-22cdd8ea512c\",\n            \"isPublic\": false\n        },\n        {\n            \"id\": \"7c8d469b-122e-4cc7-8bdf-086a4d108220\",\n            \"name\": \"TestCollection\",\n            \"owner\": \"28204638\",\n            \"createdAt\": \"2023-06-27T06:28:25.000Z\",\n            \"updatedAt\": \"2023-06-27T06:40:56.000Z\",\n            \"uid\": \"28204638-7c8d469b-122e-4cc7-8bdf-086a4d108220\",\n            \"fork\": {\n                \"label\": \"Enea Andrei's fork\",\n                \"createdAt\": \"2023-06-27T05:07:20.000Z\",\n                \"from\": \"28204638-791f356d-eb7b-408f-a6fc-22cdd8ea512c\"\n            },\n            \"isPublic\": false\n        },\n        {\n            \"id\": \"ac198c2e-ed39-4eff-8f1a-61f9f71126a0\",\n            \"name\": \"testAPI\",\n            \"owner\": \"28204638\",\n            \"createdAt\": \"2023-06-27T05:07:20.000Z\",\n            \"updatedAt\": \"2023-06-27T05:07:20.000Z\",\n            \"uid\": \"28204638-ac198c2e-ed39-4eff-8f1a-61f9f71126a0\",\n            \"isPublic\": false\n        }\n    ]\n}"
+				}
+			]
+		}
+	]
+}
